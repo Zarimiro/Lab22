@@ -1,0 +1,77 @@
+/*
+ int n,i;
+ cin>>n;
+ int *p=new int[n];
+ srand(time(0));
+ for(i=0,i<n,i++)
+ {
+ p[i]=rand()%70;
+ cout<<p[i]<<endl;
+
+ }
+ int buf=0;
+
+
+ */
+#include<iostream>
+#include<cstring>
+#include<cmath>
+using namespace std;
+    struct X{
+        char creator[64];
+        unsigned int manuf;
+
+        X()
+        {
+          manuf=creator[0]=0;
+        }
+        void create(char name[], double year){
+            strcpy(creator,name);
+               manuf=year;
+        }
+        X(char name[], double year){
+            strcpy(creator,name);
+            manuf=year;
+        }
+        unsigned int getmanuf(double dl){
+            return abs(dl-2000);
+        }
+        void print(){
+            cout<< "\ncreator:"<<creator<<endl<<"manufactured in:"<<manuf;
+        }
+    };
+
+int main(){
+    unsigned int n;
+    cout<<"n:";
+    cin>>n;
+    
+    double yer;
+    cin>>yer;
+    //unsigned int current;
+    //cout<<"Current year:";
+   // cin>>current;
+    double Lux=0;
+    char name[64];
+    double year,luxury;
+    X *pX;
+    pX=new X[n];
+    for(unsigned int i=0;i<n;++i){
+        cout<<"Instrument №:"<<i+1<<endl;
+        cout<<"Creator name:";
+        cin>>name[i];
+        cout<<"\nManufactured in:";
+        cin>>year;
+        pX[i].create(name,year);
+    }
+    for(unsigned int i=0;i<n;++i){
+        pX[i].print();
+    }
+    for(unsigned int i=0;i<n;++i){
+        Lux=pX[i].getmanuf(yer);
+      //  cout<<"\nLuxury of "<<i+1<<"instrument is:"Lux<<endl;}
+        }
+   // for(unsigned int i=0;i<n;++i){
+  //  cout<<"\nLuxury of "<<i+1<<"instrument is:"Lux;}
+    return 0;
+}
