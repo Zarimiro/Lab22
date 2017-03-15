@@ -9,10 +9,11 @@ class Instruments {
 	char maker[64];
 	unsigned manuf;
 	unsigned quality;
+	unsigned luxury;
 public:
 	
 	Instruments() {
-		maker[0] = manuf = quality = 0;
+		maker[0] = manuf = quality =luxury= 0;
 	}
 	void setInstrum(char buf_maker[], unsigned buf_manuf, unsigned buf_quality)
 	{
@@ -29,6 +30,11 @@ public:
 
 	void getInstrum() {
 		cout << "\nCreator:" << maker << endl << "Manufactured in:" << manuf << endl << "Overall nowaday quality:" << quality << endl;
+	}
+
+	void getLuxury() {
+		this->luxury = (abs(manuf-200.)) / 100 * quality;
+		cout << luxury;
 	}
 };
 
@@ -65,6 +71,10 @@ int main() {
 			pInstrum[i].getInstrum();
 		}
 
+		for (unsigned i = 0; i < n; ++i) {
+			cout << "\nLuxury of instrument #" << i + 1 << " is:";
+			pInstrum[i].getLuxury();
+		}
 
 
 			delete pInstrum;
